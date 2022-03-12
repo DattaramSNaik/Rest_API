@@ -1,0 +1,13 @@
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 3000;
+//middle ware...
+app.use(express.json());
+//import routes...
+const genresRouter = require("./routes/genres");
+//used route as a middleware...
+app.use("/api/genres", genresRouter);
+//server listening...
+app.listen(port, () => {
+  console.log(`server is running at port ${port}`);
+});
